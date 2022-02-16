@@ -1,4 +1,4 @@
-package com.example.awsimageupload.storage;
+package com.example.awsimageupload.aws;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;

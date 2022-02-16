@@ -1,4 +1,4 @@
-package com.example.awsimageupload.profile;
+package com.example.awsimageupload.model;
 
 import java.util.Objects;
 import java.util.Optional;

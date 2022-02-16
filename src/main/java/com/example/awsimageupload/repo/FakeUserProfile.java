@@ -1,6 +1,6 @@
 package com.example.awsimageupload.repo;
 
-import com.example.awsimageupload.profile.UserProfile;
+import com.example.awsimageupload.model.UserProfile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
