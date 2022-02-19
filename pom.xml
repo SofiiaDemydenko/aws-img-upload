@@ -35,13 +35,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+		<!--		AWS			-->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk</artifactId>
 			<version>1.12.153</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-aws</artifactId>

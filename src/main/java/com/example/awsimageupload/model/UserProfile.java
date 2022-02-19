@@ -44,7 +44,9 @@ public class UserProfile {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserProfile that = (UserProfile) o;
-        return id.equals(that.id) && username.equals(that.username) && imageLinkS3.equals(that.imageLinkS3);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(username, that.username) &&
+                Objects.equals(imageLinkS3, that.imageLinkS3);
     }
 
     @Override

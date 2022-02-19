@@ -11,8 +11,8 @@ import java.util.UUID;
 public class FakeUserProfile {
     private static final List<UserProfile> USER_PROFILES = new ArrayList<>();
     static {
-        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "hannah waddingham", null));
-        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "jeremy swift", null));
+        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "hannah lane", null));
+        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "jeremy clark", null));
     }
     public List<UserProfile> getUserProfiles(){
         return USER_PROFILES;
