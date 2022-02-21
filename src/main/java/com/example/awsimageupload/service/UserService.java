@@ -34,14 +34,24 @@ public class UserService {
         Map<String, String> metadata = getMetadata(file);
 
         //Store the image in s3 and update the image link in user profile.
-        String path = String.format("%s/%s", BucketName.PROFILE_IMG.getBucketName(), user.getId());
+        String path = getPath(user);
         String filename = String.format("%s-%s", file.getName(), UUID.randomUUID());
         try {
             fileStorage.save(path, filename, Optional.of(metadata), file.getInputStream());
+            user.setImageLinkS3(filename);
+
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
     }
+
+    public byte[] downloadImage(UUID userId) {
+        UserProfile user = getUser(userId);
+        return user.getImageLinkS3()
+                .map(key -> fileStorage.download(getPath(user), key))
+                .orElse(new byte[0]);
+    }
+
     private Map<String, String> getMetadata(MultipartFile file) {
         Map<String, String> metadata = new HashMap<>();
         metadata.put("Content-Type", file.getContentType());
@@ -62,5 +72,9 @@ public class UserService {
         if(file == null || file.getContentType() == null || !file.getContentType().toLowerCase().startsWith("image/")){
             throw new MultipartException("Couldn't store the file. File must be an image.");
         }
+    }
+
+    private String getPath(UserProfile user) {
+        return String.format("%s/%s", BucketName.PROFILE_IMG.getBucketName(), user.getId());
     }
 }

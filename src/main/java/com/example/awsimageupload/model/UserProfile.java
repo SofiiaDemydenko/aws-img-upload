@@ -5,8 +5,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserProfile {
-    private UUID id;
-    private String username;
+    private final UUID id;
+    private final String username;
     private String imageLinkS3;
 
     public UserProfile(UUID id, String username, String imageLinkS3) {
@@ -19,16 +19,8 @@ public class UserProfile {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Optional<String> getImageLinkS3() {
